@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./angular-elements-example";
 
 class App extends Component {
   users = JSON.stringify([{ name: "John Wick" }, { name: "IronMan" }]);
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   onUserSelect(event) {
-    console.log(event.detail);
+    alert(JSON.stringify(event.detail));
   }
 
   handleRef = component => {
