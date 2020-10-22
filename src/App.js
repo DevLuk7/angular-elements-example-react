@@ -1,11 +1,27 @@
-import React from "react";
-import "./style.css";
+import React, { Component } from "react";
 
-export default function App() {
-  return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
-  );
+class App extends Component {
+  users = JSON.stringify([{ name: "John Wick" }, { name: "IronMan" }]);
+
+  componentDidMount() {
+    this.component.addEventListener("userSelect", this.onUserSelect);
+  }
+
+  componentWillUnmount() {
+    this.component.removeEventListener("userSelect", this.onUserSelect);
+  }
+
+  onUserSelect(event) {
+    console.log(event.detail);
+  }
+
+  handleRef = component => {
+    this.component = component;
+  };
+
+  render() {
+    return <users-list userslist={this.users} ref={this.handleRef} />;
+  }
 }
+
+export default App;
